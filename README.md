@@ -14,12 +14,14 @@
 
 # Building application
 
-## Build ios
+## Build iOS
 
 `flutter build ipa`
 
 Next, either upload the outputted ipa
 or, open .xcarchive file and upload to store.
+
+[Read more](https://docs.flutter.dev/deployment/ios)
 
 ## Build Android
 
@@ -28,3 +30,5 @@ or, open .xcarchive file and upload to store.
 or
 
 `flutter build appbundle`
+
+[Read more](https://docs.flutter.dev/deployment/android)
