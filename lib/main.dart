@@ -11,12 +11,13 @@ void main() {
 }
 
 void launchApp({required AppConfig config}) {
+  print("Runner: ${config.name}");
   Client.dio.options.baseUrl = config.baseUrl;
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  MyApp();
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -51,28 +52,32 @@ class _MyAppState extends State<MyApp> {
             //     child: ConfettiWidget(confettiController: controller)),
             Center(
                 child: FutureBuilder(
-                    future: Client.dio.get("/message"),
+                    future: Client.dio.get("/welcome"),
                     builder: (context, snapshot) {
                       if (snapshot.connectionState != ConnectionState.done) {
                         return const CircularProgressIndicator(
                             color: Colors.white);
                       }
 
-                      return AnimatedTextKit(
-                        animatedTexts: [
-                          TypewriterAnimatedText(
-                            'Welcome to CODED',
-                            textStyle: const TextStyle(
-                              fontSize: 32.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                      return Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: AnimatedTextKit(
+                          animatedTexts: [
+                            TypewriterAnimatedText(
+                              snapshot.data?.data['message'] ??
+                                  "Opsie dupise.. error occured...",
+                              textStyle: const TextStyle(
+                                fontSize: 32.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                              speed: const Duration(milliseconds: 100),
                             ),
-                            speed: const Duration(milliseconds: 100),
-                          ),
-                        ],
-                        totalRepeatCount: 1,
-                        displayFullTextOnTap: true,
-                        stopPauseOnTap: true,
+                          ],
+                          totalRepeatCount: 1,
+                          displayFullTextOnTap: true,
+                          stopPauseOnTap: true,
+                        ),
                       );
                     })),
           ],

@@ -1,25 +1,20 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "firebase_deployment",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "firebase_deployment (profile mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile"
-        },
-        {
-            "name": "firebase_deployment (release mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
-        }
-    ]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "server",
+      "request": "launch",
+      "program": "lib/launch/server_main.dart",
+      "type": "dart"
+    },
+    {
+      "name": "local",
+      "request": "launch",
+      "program": "lib/launch/local_main.dart",
+      "type": "dart"
+    }
+  ]
 }

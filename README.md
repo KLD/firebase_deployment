@@ -1,16 +1,30 @@
-# firebase_deployment
+# How to deploy Flutter firebase
 
-A new Flutter project.
+## Update bundle id in iOS
 
-## Getting Started
+1. `open ios/Runner.xcworkspace/`
+2. On the right side bar, click in `Runner`
+3. On tabs, click `Signing & Capabilities`
+4. Update `Bundle Identifier`
 
-This project is a starting point for a Flutter application.
+## Update bundle id in Android
 
-A few resources to get you started if this is your first Flutter project:
+1. open `app/build.gradle`
+2. locate and update `applicationId "your.bundle.here`
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Building application
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Build ios
+
+`flutter build ipa`
+
+Next, either upload the outputted ipa
+or, open .xcarchive file and upload to store.
+
+## Build Android
+
+`flutter build apk`
+
+or
+
+`flutter build appbundle`
